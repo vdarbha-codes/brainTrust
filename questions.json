@@ -1,10 +1,63 @@
-[
-  { "id": 101, "cat": "Daily Math", "q": "What is 14 x 7?", "a": "98", "o": ["84", "98", "94", "108"] },
-  { "id": 102, "cat": "Daily Math", "q": "What is the square root of 225?", "a": "15", "o": ["12", "15", "25", "13"] },
-  { "id": 201, "cat": "General Knowledge", "q": "Which element has the chemical symbol 'Au'?", "a": "Gold", "o": ["Silver", "Gold", "Copper", "Aluminum"] },
-  { "id": 202, "cat": "General Knowledge", "q": "What is the capital of Iceland?", "a": "Reykjavik", "o": ["Oslo", "Reykjavik", "Helsinki", "Copenhagen"] },
-  { "id": 301, "cat": "NFL", "q": "Which NFL team has the most Super Bowl wins as of 2024?", "a": "Steelers & Patriots", "o": ["Cowboys", "49ers", "Steelers & Patriots", "Chiefs"] },
-  { "id": 302, "cat": "NFL", "q": "Who holds the record for most career passing yards?", "a": "Tom Brady", "o": ["Drew Brees", "Peyton Manning", "Tom Brady", "Patrick Mahomes"] },
-  { "id": 401, "cat": "Cricket", "q": "Who is the only player to score 100 international centuries?", "a": "Sachin Tendulkar", "o": ["Virat Kohli", "Sachin Tendulkar", "Ricky Ponting", "Brian Lara"] },
-  { "id": 402, "cat": "Cricket", "q": "Which country won the first-ever Cricket World Cup in 1975?", "a": "West Indies", "o": ["Australia", "West Indies", "England", "India"] }
-]
+{
+  "9": [
+    { "question": "What is the capital of France?", "correct_answer": "Paris", "incorrect_answers": ["Lyon", "Marseille", "Nice"] },
+    { "question": "Who painted the Mona Lisa?", "correct_answer": "Leonardo da Vinci", "incorrect_answers": ["Pablo Picasso", "Vincent van Gogh", "Claude Monet"] },
+    { "question": "What is the largest ocean on Earth?", "correct_answer": "Pacific Ocean", "incorrect_answers": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"] },
+    { "question": "Which planet is known as the Red Planet?", "correct_answer": "Mars", "incorrect_answers": ["Venus", "Jupiter", "Saturn"] },
+    { "question": "How many states are in the United States?", "correct_answer": "50", "incorrect_answers": ["48", "51", "52"] },
+    { "question": "What is the hardest natural substance on Earth?", "correct_answer": "Diamond", "incorrect_answers": ["Gold", "Iron", "Platinum"] },
+    { "question": "Who wrote 'Romeo and Juliet'?", "correct_answer": "William Shakespeare", "incorrect_answers": ["Mark Twain", "Charles Dickens", "Jane Austen"] },
+    { "question": "What is the currency of Japan?", "correct_answer": "Yen", "incorrect_answers": ["Won", "Yuan", "Baht"] },
+    { "question": "What is the smallest country in the world?", "correct_answer": "Vatican City", "incorrect_answers": ["Monaco", "Nauru", "San Marino"] },
+    { "question": "Which element has the chemical symbol 'O'?", "correct_answer": "Oxygen", "incorrect_answers": ["Gold", "Silver", "Iron"] }
+  ],
+  "20": [
+    { "question": "Who is the Greek god of the sea?", "correct_answer": "Poseidon", "incorrect_answers": ["Zeus", "Hades", "Apollo"] },
+    { "question": "In Norse mythology, what is the name of Thor's hammer?", "correct_answer": "Mjolnir", "incorrect_answers": ["Gungnir", "Stormbreaker", "Aegis"] },
+    { "question": "Who was the Roman god of war?", "correct_answer": "Mars", "incorrect_answers": ["Jupiter", "Neptune", "Vulcan"] },
+    { "question": "In Egyptian mythology, who is the god of the sun?", "correct_answer": "Ra", "incorrect_answers": ["Anubis", "Osiris", "Horus"] },
+    { "question": "Which hero in Greek mythology killed the Medusa?", "correct_answer": "Perseus", "incorrect_answers": ["Hercules", "Theseus", "Achilles"] },
+    { "question": "Who is the Greek goddess of wisdom?", "correct_answer": "Athena", "incorrect_answers": ["Aphrodite", "Hera", "Artemis"] },
+    { "question": "In Greek mythology, what was the box that released all evils into the world?", "correct_answer": "Pandora's Box", "incorrect_answers": ["Hera's Chest", "The Golden Casket", "The Trojan Box"] },
+    { "question": "Who is the King of the Greek gods?", "correct_answer": "Zeus", "incorrect_answers": ["Poseidon", "Hades", "Cronus"] },
+    { "question": "What is the name of the Greek underworld ferryman?", "correct_answer": "Charon", "incorrect_answers": ["Hades", "Cerberus", "Hermes"] },
+    { "question": "Which mythological bird rises from its own ashes?", "correct_answer": "Phoenix", "incorrect_answers": ["Griffin", "Hippogriff", "Thunderbird"] }
+  ],
+  "18": [
+    { "question": "What is the chemical symbol for Gold?", "correct_answer": "Au", "incorrect_answers": ["Ag", "Fe", "Cu"] },
+    { "question": "Which planet is closest to the sun?", "correct_answer": "Mercury", "incorrect_answers": ["Venus", "Earth", "Mars"] },
+    { "question": "What is the study of living organisms called?", "common_answer": "Biology", "incorrect_answers": ["Geology", "Physics", "Chemistry"] },
+    { "question": "What gas do plants absorb from the atmosphere?", "correct_answer": "Carbon Dioxide", "incorrect_answers": ["Oxygen", "Nitrogen", "Hydrogen"] },
+    { "question": "What is the largest organ in the human body?", "correct_answer": "Skin", "incorrect_answers": ["Heart", "Liver", "Lungs"] },
+    { "question": "What is the center of an atom called?", "correct_answer": "Nucleus", "incorrect_answers": ["Electron", "Proton", "Neutron"] },
+    { "question": "How many bones are in the adult human body?", "correct_answer": "206", "incorrect_answers": ["195", "210", "225"] },
+    { "question": "What is the speed of light approx?", "correct_answer": "300,000 km/s", "incorrect_answers": ["150,000 km/s", "500,000 km/s", "1,000,000 km/s"] },
+    { "question": "What part of the plant conducts photosynthesis?", "correct_answer": "Leaf", "incorrect_answers": ["Root", "Stem", "Flower"] },
+    { "question": "Which vitamin is produced when a person is exposed to sunlight?", "correct_answer": "Vitamin D", "incorrect_answers": ["Vitamin A", "Vitamin B", "Vitamin C"] }
+  ],
+  "21": [
+    { "question": "How many players are on a soccer team?", "correct_answer": "11", "incorrect_answers": ["10", "12", "9"] },
+    { "question": "Which sport is known as the 'King of Sports'?", "correct_answer": "Soccer", "incorrect_answers": ["Basketball", "Cricket", "Tennis"] },
+    { "question": "In which city were the first modern Olympics held?", "correct_answer": "Athens", "incorrect_answers": ["Paris", "London", "Rome"] },
+    { "question": "Which country won the FIFA World Cup in 2018?", "correct_answer": "France", "incorrect_answers": ["Croatia", "Brazil", "Germany"] },
+    { "question": "What is the standard distance of a marathon?", "correct_answer": "42.195 km", "incorrect_answers": ["40 km", "45 km", "35 km"] },
+    { "question": "Who has won the most Grand Slam titles in men's tennis history?", "correct_answer": "Novak Djokovic", "incorrect_answers": ["Rafael Nadal", "Roger Federer", "Pete Sampras"] },
+    { "question": "Which team has won the most NBA championships?", "correct_answer": "Boston Celtics", "incorrect_answers": ["LA Lakers", "Chicago Bulls", "Golden State Warriors"] },
+    { "question": "What is the diameter of a basketball hoop in inches?", "correct_answer": "18", "incorrect_answers": ["16", "20", "22"] },
+    { "question": "How many holes are played in a standard round of golf?", "correct_answer": "18", "incorrect_answers": ["9", "12", "24"] },
+    { "question": "Which player holds the record for most home runs in an MLB season?", "correct_answer": "Barry Bonds", "incorrect_answers": ["Mark McGwire", "Sammy Sosa", "Babe Ruth"] }
+  ],
+  "11": [
+    { "question": "Who directed 'Jurassic Park'?", "correct_answer": "Steven Spielberg", "incorrect_answers": ["James Cameron", "George Lucas", "Ridley Scott"] },
+    { "question": "What was the first feature-length animated movie ever released?", "correct_answer": "Snow White and the Seven Dwarfs", "incorrect_answers": ["Pinocchio", "Dumbo", "Bambi"] },
+    { "question": "Who played Jack in 'Titanic'?", "correct_answer": "Leonardo DiCaprio", "incorrect_answers": ["Brad Pitt", "Johnny Depp", "Matt Damon"] },
+    { "question": "What is the highest-grossing film of all time?", "correct_answer": "Avatar", "incorrect_answers": ["Avengers: Endgame", "Titanic", "Star Wars: The Force Awakens"] },
+    { "question": "In 'The Matrix', what color is the pill Neo takes?", "correct_answer": "Red", "incorrect_answers": ["Blue", "Green", "Yellow"] },
+    { "question": "Which movie features the line 'I'll be back'?", "correct_answer": "The Terminator", "incorrect_answers": ["Rocky", "Die Hard", "Predator"] },
+    { "question": "Who directed 'Inception'?", "correct_answer": "Christopher Nolan", "incorrect_answers": ["Quentin Tarantino", "Martin Scorsese", "Steven Spielberg"] },
+    { "question": "Which film won the first Academy Award for Best Picture?", "correct_answer": "Wings", "incorrect_answers": ["Sunrise", "The Jazz Singer", "Metropolis"] },
+    { "question": "What is the name of the kingdom where 'Frozen' takes place?", "correct_answer": "Arendelle", "incorrect_answers": ["Corona", "DunBroch", "Agrabah"] },
+    { "question": "Who played the Joker in 'The Dark Knight'?", "correct_answer": "Heath Ledger", "incorrect_answers": ["Jack Nicholson", "Joaquin Phoenix", "Jared Leto"] }
+  ]
+}
+
