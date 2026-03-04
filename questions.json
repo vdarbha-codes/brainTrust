@@ -1,0 +1,10 @@
+[
+  { "id": 101, "cat": "Daily Math", "q": "What is 14 x 7?", "a": "98", "o": ["84", "98", "94", "108"] },
+  { "id": 102, "cat": "Daily Math", "q": "What is the square root of 225?", "a": "15", "o": ["12", "15", "25", "13"] },
+  { "id": 201, "cat": "General Knowledge", "q": "Which element has the chemical symbol 'Au'?", "a": "Gold", "o": ["Silver", "Gold", "Copper", "Aluminum"] },
+  { "id": 202, "cat": "General Knowledge", "q": "What is the capital of Iceland?", "a": "Reykjavik", "o": ["Oslo", "Reykjavik", "Helsinki", "Copenhagen"] },
+  { "id": 301, "cat": "NFL", "q": "Which NFL team has the most Super Bowl wins as of 2024?", "a": "Steelers & Patriots", "o": ["Cowboys", "49ers", "Steelers & Patriots", "Chiefs"] },
+  { "id": 302, "cat": "NFL", "q": "Who holds the record for most career passing yards?", "a": "Tom Brady", "o": ["Drew Brees", "Peyton Manning", "Tom Brady", "Patrick Mahomes"] },
+  { "id": 401, "cat": "Cricket", "q": "Who is the only player to score 100 international centuries?", "a": "Sachin Tendulkar", "o": ["Virat Kohli", "Sachin Tendulkar", "Ricky Ponting", "Brian Lara"] },
+  { "id": 402, "cat": "Cricket", "q": "Which country won the first-ever Cricket World Cup in 1975?", "a": "West Indies", "o": ["Australia", "West Indies", "England", "India"] }
+]

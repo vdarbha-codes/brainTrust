@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainTrust - Daily Challenge</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #fff; display: flex; justify-content: center; padding: 20px; }
+        #game-container { background: #16213e; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 600px; text-align: center; }
+        .hidden { display: none; }
+        button { background: #e94560; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; margin: 10px; font-weight: bold; transition: 0.3s; }
+        button:hover { transform: scale(1.05); background: #ff4d6d; }
+        .option-btn { display: block; width: 100%; background: #0f3460; text-align: left; margin: 10px 0; border: 1px solid #533483; }
+        .correct { background: #27ae60 !important; border-color: #2ecc71; }
+        .wrong { background: #c0392b !important; border-color: #e74c3c; }
+        #stats { display: flex; justify-content: space-between; margin-bottom: 20px; color: #00d2ff; font-family: monospace; font-size: 1.2em; }
+        input { padding: 10px; border-radius: 5px; border: none; width: 80%; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="setup-screen">
+        <h1 style="color: #00d2ff;">BrainTrust</h1>
+        <input type="text" id="username" placeholder="Enter Username">
+        <p>Choose Category:</p>
+        <div id="cats">
+            <button onclick="selectCat('Daily Math')">Math</button>
+            <button onclick="selectCat('General Knowledge')">GK</button>
+            <button onclick="selectCat('NFL')">NFL</button>
+            <button onclick="selectCat('Cricket')">Cricket</button>
+        </div>
+        <p id="selected-cat-text">Selected: None</p>
+        <p>Choose Duration:</p>
+        <button onclick="startGame(1)">1 Min</button>
+        <button onclick="startGame(5)">5 Mins</button>
+        <button onclick="startGame(10)">10 Mins</button>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div id="stats">
+            <span>TIME: <span id="timer">0:00</span></span>
+            <span>SCORE: <span id="score">0</span></span>
+        </div>
+        <h3 id="question-text"></h3>
+        <div id="options-container"></div>
+        <p id="feedback" style="height: 20px; font-weight: bold;"></p>
+    </div>
+
+    <div id="result-screen" class="hidden">
+        <h2 id="result-header"></h2>
+        <p id="final-score-msg"></p>
+        <button onclick="location.reload()">Try Again</button>
+    </div>
+</div>
+
+<script>
+    let allQuestions = [], sessionUsed = [], score = 0, timeLeft = 0, currentCat = "";
+    const FIFTEEN_DAYS = 15 * 24 * 60 * 60 * 1000;
+
+    async function loadData() {
+        try {
+            const res = await fetch('questions.json');
+            allQuestions = await res.json();
+        } catch (e) { console.error("Could not load questions.json"); }
+    }
+
+    function selectCat(cat) {
+        currentCat = cat;
+        document.getElementById('selected-cat-text').innerText = "Selected: " + cat;
+    }
+
+    function startGame(mins) {
+        let user = document.getElementById('username').value.trim();
+        if(!user || !currentCat) return alert("Please enter name and select category!");
+        
+        localStorage.setItem('currentUser', user);
+        score = 0; timeLeft = mins * 60; sessionUsed = [];
+        
+        document.getElementById('setup-screen').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        
+        tick();
+        nextQuestion();
+    }
+
+    function tick() {
+        let m = Math.floor(timeLeft / 60), s = timeLeft % 60;
+        document.getElementById('timer').innerText = `${m}:${s < 10 ? '0'+s : s}`;
+        if(timeLeft <= 0) return endGame();
+        timeLeft--;
+        setTimeout(tick, 1000);
+    }
+
+    function nextQuestion() {
+        const now = Date.now();
+        const user = localStorage.getItem('currentUser');
+        let history = JSON.parse(localStorage.getItem(`hist_${user}`) || "{}");
+
+        // Filter: Category matches + Not in session + Not in last 15 days
+        let pool = allQuestions.filter(q => 
+            q.cat === currentCat && 
+            !sessionUsed.includes(q.id) && 
+            (now - (history[q.id] || 0) > FIFTEEN_DAYS)
+        );
+
+        // Fallback: If 15-day rule leaves no questions, allow repeats but keep session unique
+        if(pool.length === 0) pool = allQuestions.filter(q => q.cat === currentCat && !sessionUsed.includes(q.id));
+        
+        if(pool.length === 0) return endGame("Out of new questions!");
+
+        const q = pool[Math.floor(Math.random() * pool.length)];
+        sessionUsed.push(q.id);
+        history[q.id] = now;
+        localStorage.setItem(`hist_${user}`, JSON.stringify(history));
+
+        render(q);
+    }
+
+    function render(q) {
+        document.getElementById('question-text').innerText = q.q;
+        const container = document.getElementById('options-container');
+        container.innerHTML = "";
+        
+        q.o.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = "option-btn";
+            btn.innerText = opt;
+            btn.onclick = () => {
+                const btns = document.querySelectorAll('.option-btn');
+                btns.forEach(b => b.disabled = true);
+                
+                if(opt === q.a) {
+                    btn.classList.add('correct'); score += 10;
+                    document.getElementById('feedback').innerText = "Correct! 🌟";
+                } else {
+                    btn.classList.add('wrong');
+                    document.getElementById('feedback').innerText = "Wrong! Answer: " + q.a;
+                    btns.forEach(b => { if(b.innerText === q.a) b.classList.add('correct'); });
+                }
+                document.getElementById('score').innerText = score;
+                setTimeout(nextQuestion, 1500);
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    function endGame(msg) {
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('result-screen').classList.remove('hidden');
+        document.getElementById('result-header').innerText = msg || "Time's Up!";
+        let feedback = score > 50 ? "Excellent work, Brainiac!" : "Good effort! Keep practicing.";
+        document.getElementById('final-score-msg').innerText = `You scored ${score}. ${feedback}`;
+    }
+
+    window.onload = loadData;
+</script>
+</body>
+</html>
